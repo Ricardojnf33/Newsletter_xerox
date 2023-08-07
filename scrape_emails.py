@@ -1,3 +1,7 @@
+import imaplib
+import email
+from bs4 import BeautifulSoup
+
 # Função de Web Scraping do Gmail
 def scrape_gmail(user, password):
     # Faz conexão segura com servidor IMAP do Gmail
@@ -14,8 +18,6 @@ def scrape_gmail(user, password):
 
     # Faz a pesquisa
     typ, data = imap.search(None, search_query)
-
-    # Busca IDs das mensagens encontradas
     ids = data[0].split()
 
     # Inicializa lista para armazenar conteúdo dos emails
@@ -44,3 +46,4 @@ def scrape_gmail(user, password):
 
     # Retorna conteúdo concatenado
     return ". ".join(all_email_text)
+
